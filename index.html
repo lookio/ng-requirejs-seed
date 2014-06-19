@@ -28,7 +28,79 @@
    ga('send', 'pageview');
  </script> 
 
+
+  <script type="text/javascript">
+    function onReady(){
+        LPMobile.on('visitStart', function() {
+            mixpanel.track("visitStart")
+        });
+        LPMobile.on('enabledChange', function() {
+            mixpanel.track("enabledChange")
+        });
+        LPMobile.on('hotLead', function() {
+            mixpanel.track("hotlead")
+        });
+        LPMobile.on('coldLead', function() {
+            mixpanel.track("coldLead")
+        });
+        LPMobile.on('invitationShow', function() {
+            mixpanel.track("invitationShow")
+        });
+        LPMobile.on('chatWindowShow', function() {
+            mixpanel.track("chatWindowShow")
+        });
+        LPMobile.on('chatWindowHide', function() {
+            mixpanel.track("chatWindowHide")
+        });
+        LPMobile.on('windowShow', function() {
+            mixpanel.track("windowShow")
+        });
+        LPMobile.on('windowHide', function() {
+            mixpanel.track("windowHide")
+        });
+        LPMobile.on('visitorMessage', function() {
+            mixpanel.track("visitorMessage")
+        });
+        LPMobile.on('agentMessage', function() {
+            mixpanel.track("agentMessage")
+        });
+        LPMobile.on('invitationAccept', function() {
+            mixpanel.track("invitationAccept")
+        });
+        LPMobile.on('chatEnd', function() {
+            mixpanel.track("chatEnd")
+        });
+        LPMobile.on('chatInteractive', function() {
+            mixpanel.track("chatInteractive")
+        });
+        LPMobile.on('prechatSurveyCanceled', function() {
+            mixpanel.track("prechatSurveyCanceled")
+        });
+        LPMobile.on('prechatSurveySubmit', function() {
+            mixpanel.track("prechatSurveySubmit")
+        });
+        LPMobile.on('offlineSurveySubmit', function() {
+            mixpanel.track("offlineSurveySubmit")
+        });
+        LPMobile.on('prechatSurveyShow', function() {
+            mixpanel.track("prechatSurveyShow")
+        });
+        LPMobile.on('postchatSurveyShow', function() {
+            mixpanel.track("postchatSurveyShow")
+        });
+        LPMobile.on('chatInteractive', function() {
+            mixpanel.track("chatInteractive")
+        });
+        LPMobile.on('offlineSurveyShow', function() {
+            mixpanel.track("offlineSurveyShow")
+        });
+    }
+  </script>
+
  <script type="text/javascript">
+   var options = {
+    onReady: window.onReady
+   };
   /* LP Mobile JS Configuration */
     var _LP_CFG_ = { 
       app_id : "P89484677",
@@ -41,8 +113,7 @@
  b.src="https://s3.amazonaws.com/lp-qa-html-lib/lp_lib/liveperson-mobile.js";
  s.parentNode.insertBefore(b,s)})(); 
   /* End of Include */
- </script> 
-
+ </script>
 <!--[if lt IE 9]>
 <script src="bower_components/es5-shim/es5-shim.js"></script>
 <script src="bower_components/json3/lib/json3.min.js"></script>
