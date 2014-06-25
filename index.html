@@ -9,13 +9,34 @@
             mixpanel.init("0d56da8c63a83cc4ea6e70c369a98596");</script><!-- end Mixpanel -->
 	</head>
 	<body >
+    <script type="text/javascript">
+        function chatButtonState (acct, skill) {
+            if(document.getElementById(acct+"-"+skill+"-chatButton")) {
+                  if (LPMobile.getEnabled(acct, skill) == 1) {
+                          document.getElementById(acct+"-"+skill+"-chatButton").style.visibility="visible";
+                          LPMobile.setInvitationShown(acct, skill);
+                          LPMobile.reportEvent(acct+"-"+skill+'-Mobile-Buttton', "1");
+                        } else {
+                                document.getElementById(acct+"-"+skill+"-chatButton").style.visibility="hidden";
+                                LPMobile.reportEvent(acct+"-"+skill+'-Mobile-Buttton', "0");
+                              };
+                } else {
+                        LPMobile.reportEvent(acct+"-"+skill+'-Mobile-Buttton', "-1");
+                    };
+              }
+            </script>
   	<script type="text/javascript">
     	function onReady(){
+ LPMobile.on("enabledChange",function(o) {
+               chatButtonState(o.account, o.skill);
+            mixpanel.track("enabledChange")
+                       });
+
+          chatButtonState('1771134', 'service_olam-mobile-web-english');
+                  chatButtonState('10188673', 'dslcare13-mobile-web-english');
+
         LPMobile.on('visitStart', function() {
             mixpanel.track("visitStart")
-        });
-        LPMobile.on('enabledChange', function() {
-            mixpanel.track("enabledChange")
         });
         LPMobile.on('hotLead', function() {
             mixpanel.track("hotlead")
