@@ -10,34 +10,31 @@
 	</head>
 	<body >
     <script type="text/javascript">
-        function chatButtonState (acct, skill) {
-            if(document.getElementById(acct+"-"+skill+"-chatButton")) {
-                  if (LPMobile.getEnabled(acct, skill) == 1) {
-                    document.getElementById(acct+"-"+skill+"-chatButton").style.visibility="visible";
-                    LPMobile.setInvitationShown(acct, skill);
-                    LPMobile.reportEvent(acct+"-"+skill+'-Mobile-Buttton', "1");
-                    console.log('added visibility. agent online', acct, skill);
-                  } else {
-                    document.getElementById(acct+"-"+skill+"-chatButton").style.visibility="hidden";
-                    LPMobile.reportEvent(acct+"-"+skill+'-Mobile-Buttton', "0");
-                    console.log('agent offline/hidden', acct, skill);
-                  };
-                } else {
-                    LPMobile.reportEvent(acct+"-"+skill+'-Mobile-Buttton', "-1");
-                    console.log("in else", acct, skill);
-                };
-              }
-            </script>
+      function chatButtonState (acct, skill) {
+        var button = document.getElementById(acct+"-"+skill+"-chatButton");
+        if(button) {
+          if (LPMobile.getEnabled(acct, skill) == 1) {
+            $(button).show();
+            LPMobile.setInvitationShown(acct, skill);
+            LPMobile.reportEvent(acct+"-"+skill+'-Mobile-Buttton', "1");
+            console.log('added visibility. agent online', acct, skill);
+          } else {
+            $(button).hide();
+            LPMobile.reportEvent(acct+"-"+skill+'-Mobile-Buttton', "0");
+            console.log('agent offline/hidden', acct, skill);
+          };
+        } else {
+            LPMobile.reportEvent(acct+"-"+skill+'-Mobile-Buttton', "-1");
+            console.log("in else", acct, skill);
+        };
+      }
+    </script>
   	<script type="text/javascript">
     	function onReady(){
         LPMobile.on("enabledChange",function(o) {
           chatButtonState(o.account, o.skill);
           mixpanel.track("enabledChange")
         });
-        console.log("in onReady()");
-        chatButtonState('1771134', 'service_olam-mobile-web-english');
-        chatButtonState('10188673', 'dslcare13-mobile-web-english');
-
         LPMobile.on('visitStart', function() {
             mixpanel.track("visitStart")
         });
