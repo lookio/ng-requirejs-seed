@@ -16,12 +16,15 @@
                     document.getElementById(acct+"-"+skill+"-chatButton").style.visibility="visible";
                     LPMobile.setInvitationShown(acct, skill);
                     LPMobile.reportEvent(acct+"-"+skill+'-Mobile-Buttton', "1");
+                    console.log('added visibility. agent online', acct, skill);
                   } else {
                     document.getElementById(acct+"-"+skill+"-chatButton").style.visibility="hidden";
                     LPMobile.reportEvent(acct+"-"+skill+'-Mobile-Buttton', "0");
+                    console.log('agent offline/hidden', acct, skill);
                   };
                 } else {
                     LPMobile.reportEvent(acct+"-"+skill+'-Mobile-Buttton', "-1");
+                    console.log("in else", acct, skill);
                 };
               }
             </script>
@@ -31,7 +34,7 @@
           chatButtonState(o.account, o.skill);
           mixpanel.track("enabledChange")
         });
-
+        console.log("in onReady()");
         chatButtonState('1771134', 'service_olam-mobile-web-english');
         chatButtonState('10188673', 'dslcare13-mobile-web-english');
 
