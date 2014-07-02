@@ -31,69 +31,72 @@
     </script>
   	<script type="text/javascript">
     	function onReady(){
+
+        console.log("**********ONREADY*************");
+
         LPMobile.on("enabledChange",function(o) {
           chatButtonState(o.account, o.skill);
           mixpanel.track("enabledChange")
         });
         LPMobile.on('visitStart', function() {
-            mixpanel.track("visitStart")
+          mixpanel.track("visitStart")
         });
         LPMobile.on('hotLead', function() {
-            mixpanel.track("hotlead")
+          mixpanel.track("hotlead")
         });
         LPMobile.on('coldLead', function() {
-            mixpanel.track("coldLead")
+          mixpanel.track("coldLead")
         });
         LPMobile.on('invitationShow', function() {
-            mixpanel.track("invitationShow")
+          mixpanel.track("invitationShow")
         });
         LPMobile.on('chatWindowShow', function() {
-            mixpanel.track("chatWindowShow")
+          mixpanel.track("chatWindowShow")
         });
         LPMobile.on('chatWindowHide', function() {
-            mixpanel.track("chatWindowHide")
+          mixpanel.track("chatWindowHide")
         });
         LPMobile.on('windowShow', function() {
-            mixpanel.track("windowShow")
+          mixpanel.track("windowShow")
         });
         LPMobile.on('windowHide', function() {
-            mixpanel.track("windowHide")
+          mixpanel.track("windowHide")
         });
         LPMobile.on('visitorMessage', function() {
-            mixpanel.track("visitorMessage")
+          mixpanel.track("visitorMessage")
         });
         LPMobile.on('agentMessage', function() {
-            mixpanel.track("agentMessage")
+          mixpanel.track("agentMessage")
         });
         LPMobile.on('invitationAccept', function() {
-            mixpanel.track("invitationAccept")
+          mixpanel.track("invitationAccept")
         });
         LPMobile.on('chatEnd', function() {
-            mixpanel.track("chatEnd")
+          mixpanel.track("chatEnd")
         });
         LPMobile.on('chatInteractive', function() {
-            mixpanel.track("chatInteractive")
+          mixpanel.track("chatInteractive")
         });
         LPMobile.on('prechatSurveyCanceled', function() {
-            mixpanel.track("prechatSurveyCanceled")
+          mixpanel.track("prechatSurveyCanceled")
         });
         LPMobile.on('prechatSurveySubmit', function() {
-            mixpanel.track("prechatSurveySubmit")
+          mixpanel.track("prechatSurveySubmit")
         });
         LPMobile.on('offlineSurveySubmit', function() {
-            mixpanel.track("offlineSurveySubmit")
+          mixpanel.track("offlineSurveySubmit")
         });
         LPMobile.on('prechatSurveyShow', function() {
-            mixpanel.track("prechatSurveyShow")
+          mixpanel.track("prechatSurveyShow")
         });
         LPMobile.on('postchatSurveyShow', function() {
-            mixpanel.track("postchatSurveyShow")
+          mixpanel.track("postchatSurveyShow")
         });
         LPMobile.on('chatInteractive', function() {
-            mixpanel.track("chatInteractive")
+          mixpanel.track("chatInteractive")
         });
         LPMobile.on('offlineSurveyShow', function() {
-            mixpanel.track("offlineSurveyShow")
+          mixpanel.track("offlineSurveyShow")
         });
     	}
   	</script>
