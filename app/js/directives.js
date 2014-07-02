@@ -21,15 +21,17 @@ define(['angular', 'services', 'jquery'], function(angular, services, $) {
             console.log(account);
             console.log(skill);
 
-            if ( !LPMobile.getEnabled(account, skill)  ){
-              console.log('disabled');
-              $chat.hide()
-            }else{
-              console.log('enabled');
-              $chat.on('click', function(){
-                LPMobile.beginChat(account, skill);
-                return false;
-              })
+            if (typeof(LPMobile) !== "undefined") {
+              if ( !LPMobile.getEnabled(account, skill)  ){
+                console.log('disabled');
+              }else{
+                console.log('enabled');
+                $chat.show()
+                $chat.on('click', function(){
+                  LPMobile.beginChat(account, skill);
+                  return false;
+                })
+              }
             }
           }
         }
@@ -52,17 +54,18 @@ define(['angular', 'services', 'jquery'], function(angular, services, $) {
             console.log(account);
             console.log(skill);
 
-            if ( !LPMobile.getEnabled(account, skill)  ){
-              console.log('disabled');
-              $chat.hide()
-            }else{
-              console.log('enabled');
-              $chat.on('click', function(){
-                LPMobile.beginChat(account, skill);
-                return false;
-              })
+            if (typeof(LPMobile) !== "undefined") {
+              if ( !LPMobile.getEnabled(account, skill)  ){
+                console.log('disabled');
+              }else{
+                console.log('enabled');
+                $chat.show()
+                $chat.on('click', function(){
+                  LPMobile.beginChat(account, skill);
+                  return false;
+                })
+              }
             }
-
           }
         }
   }]);
