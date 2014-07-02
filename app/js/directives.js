@@ -21,7 +21,7 @@ define(['angular', 'services', 'jquery'], function(angular, services, $) {
             console.log(account);
             console.log(skill);
 
-            if (typeof(LPMobile) !== "undefined") {
+            if (typeof(window.LPMobile) !== "undefined") {
               if ( !LPMobile.getEnabled(account, skill)  ){
                 console.log('disabled');
               }else{
@@ -54,7 +54,7 @@ define(['angular', 'services', 'jquery'], function(angular, services, $) {
             console.log(account);
             console.log(skill);
 
-            if (typeof(LPMobile) !== "undefined") {
+            if (typeof(window.LPMobile) !== "undefined") {
               if ( !LPMobile.getEnabled(account, skill)  ){
                 console.log('disabled');
               }else{
